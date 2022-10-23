@@ -20,9 +20,19 @@ int main(int argc, char **argv) {
     double tax;
     double tip;
 
+    if (argc != 3){
+        printf("Please enter tax and tip in decimal form.");
+        return 1;
+    }
+
     tax = strtod(argv[1], &pass);
     tip = strtod(argv[2], &pass);
-    
+
+    if (tax < 0 || tip < 0){
+        printf("Please enter valid numbers for tax and tip in decimal form.");
+        return 1;
+    }
+
     // generate random number and use that number to select random food item
     srand(time(0));
     int randomfood = rand() % 4;
